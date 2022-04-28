@@ -1,0 +1,214 @@
+@import "utilities/variables";
+
+
+/*/ index /*/
+
+/*/logo y nav/*/
+.contenedorHeaderIndex {
+    @include header;
+
+    .tituloLogo {
+        @include TyL;
+
+        img {
+            width: 5rem;
+        }
+
+        h1 {
+            font-family: 'Akshar', sans-serif;
+            font-size: 5rem;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+    }
+
+    .menuHead {
+        grid-column: 1/3;
+        grid-row: 2/3;
+        background-color: rgb(92, 171, 245);
+
+        nav {
+            margin-top: 20px;
+
+            .menuNav {
+                display: flex;
+                justify-content: space-around;
+
+                li {
+                    border: map-get($map: $map1, $key:border-map1);
+                    border-radius: 20px;
+                    padding: 10px;
+                    background-color: rgb(57, 63, 70);
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        cursor: pointer;
+                        @extend %ext1;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 752px) {
+    .menuNav {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+/*/subtitulo/*/
+.subtitulo {
+    text-align: center;
+    margin-top: 15px;
+    padding: 15px;
+    background-image: $colorFondo;
+
+    h2 {
+        font-family: 'Akshar', sans-serif;
+    }
+}
+
+
+/*/section/*/
+.contenedorSection {
+    height: 50vh;
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr;
+    font-size: 1.5rem;
+    gap: 1em;
+
+    .hijoP {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border: map-get($map: $map1, $key:border-map1);
+        background-color: rgb(151, 150, 150);
+        border-radius: 13px;
+        width: 70%;
+        opacity: 0.6;
+        font-family: 'Akshar', sans-serif;
+    }
+
+    .hijo1 {
+        @include hijosIndex;
+        background-image: url(../img/precio.png);
+    }
+
+    .hijo2 {
+        @include hijosIndex;
+        background-image: url(../img/mvh.jpg);
+    }
+
+    .hijo3 {
+        @include hijosIndex;
+        background-image: url(../img/azafata-4.jpg);
+    }
+
+    .hijo4 {
+        @include hijosIndex;
+        background-image: url(../img/seguro.png);
+    }
+
+
+}
+
+@media (max-width: 700px) {
+    .contenedorSection {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        margin: 5px;
+        
+    }
+}
+
+/*/footer/*/
+.footerI{
+        display: flex;
+        justify-content: space-between;
+        background-image: $colorFondo;
+        font-size: 1.5rem;
+        width: 100%;
+        
+        
+}
+
+
+
+
+
+
+
+/*/contacto/*/
+/*/logo y nav/*/
+
+.contenedorHeaderContacto {
+    @include header;
+
+    .tituloLogo {
+        @include TyL;
+
+        img {
+            width: 5rem;
+        }
+
+        h1 {
+            font-family: 'Akshar', sans-serif;
+            font-size: 5rem;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+    }
+    
+
+    .menuHead {
+        grid-column: 1/3;
+        grid-row: 2/3;
+        background-color: rgb(92, 171, 245);
+
+        nav {
+            margin-top: 20px;
+
+            .menuNav {
+                display: flex;
+                justify-content: space-around;
+
+                li {
+                    border: map-get($map: $map1, $key:border-map1);
+                    border-radius: 20px;
+                    padding: 10px;
+                    background-color: rgb(57, 63, 70);
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        cursor: pointer;
+                        @extend %ext1;
+                    }
+                }
+            }
+        }
+
+    }
+}
+.subtituloC{
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px;
+    font-family: 'Akshar', sans-serif;
+}
+
+.footerC{
+        display: flex;
+        justify-content: space-between;
+        background-image: $colorFondo;
+        font-size: 1.5rem;
+        width: 100%;
+        
+}
