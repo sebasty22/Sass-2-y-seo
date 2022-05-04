@@ -1,7 +1,14 @@
 
 $colorFondo: linear-gradient(to left, rgb(247, 242, 242), rgb(92, 171, 245), rgb(247, 242, 242));
 
+
 //mixin
+@mixin cardsText {display: flex;
+                flex-direction: column;
+                font-size: 1rem;
+                font-family: 'Akshar', sans-serif;;
+    
+}
 @mixin hijosIndex {
     text-align: center;
             font-family: "Bebas Neue", cursie;
@@ -16,10 +23,9 @@ $colorFondo: linear-gradient(to left, rgb(247, 242, 242), rgb(92, 171, 245), rgb
 @mixin header {
     background-image: $colorFondo;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     align-items: center;
     width: 100%;
+    
     
 }
 
@@ -39,6 +45,8 @@ $map1: (
 //extend
 %ext1{
     font-family: 'Akshar', sans-serif;
-    font-size: 2rem;
+    font-size: 1rem;
     color: aliceblue;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }

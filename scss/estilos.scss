@@ -56,10 +56,11 @@
 
 @media (max-width: 752px) {
     .menuNav {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column;
+        text-align: center;
     }
-  }
+}
+
 /*/subtitulo/*/
 .subtitulo {
     text-align: center;
@@ -123,19 +124,19 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
         margin: 5px;
-        
+
     }
 }
 
 /*/footer/*/
-.footerI{
-        display: flex;
-        justify-content: space-between;
-        background-image: $colorFondo;
-        font-size: 1.5rem;
-        width: 100%;
-        
-        
+.footerI {
+    display: flex;
+    justify-content: space-between;
+    background-image: $colorFondo;
+    font-size: 1.5rem;
+    width: 100%;
+
+
 }
 
 
@@ -143,11 +144,8 @@
 
 
 
-
-/*/contacto/*/
-/*/logo y nav/*/
-
-.contenedorHeaderContacto {
+/*/viajes nacionales/*/
+.contenedorHeaderVN {
     @include header;
 
     .tituloLogo {
@@ -165,10 +163,9 @@
         }
 
     }
-    
 
     .menuHead {
-        grid-column: 1/3;
+        grid-column: 1/4;
         grid-row: 2/3;
         background-color: rgb(92, 171, 245);
 
@@ -197,18 +194,350 @@
 
     }
 }
-.subtituloC{
+
+.subtituloVN {
     text-align: center;
-    font-size: 2rem;
-    margin: 30px;
     font-family: 'Akshar', sans-serif;
+    font-size: 2.3rem;
+    padding: 30PX;
+    border: map-get($map: $map1, $key:border-map1);
+    background-color: rgb(57, 63, 70);
+    opacity: 0.9;
+    color: aliceblue;
+
 }
 
-.footerC{
-        display: flex;
-        justify-content: space-between;
-        background-image: $colorFondo;
-        font-size: 1.5rem;
-        width: 100%;
+@media (max-width: 900px) {
+    .menuNav {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/*/main/*/
+.mainVN {
+    background-image: $colorFondo;
+}
+
+
+
+    .viajesN {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: max-content max-content max-content;
+        gap: 1rem;
+
+        .card {
+            box-shadow: 0 2px 2px black;
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center center;
+
+
+            .textos {
+                @include cardsText
+            }
+
+            
+
+        }
+    }
+@media (max-width: 752px){
+    .viajesN{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: max-content max-content;
+        gap: 0.5rem;
+    
+        
+    }
+}
+@media(max-width:752px){
+    .textos{ font-size: 0.5rem;}
+}
+
+/*/footer/*/
+.footerVN {
+    display: flex;
+    justify-content: space-between;
+    background-image: $colorFondo;
+    font-size: 1.5rem;
+    width: 100%;
+
+}
+
+
+
+/*/viajes internacionales/*/
+.contenedorHeaderVI {
+    @include header;
+
+    .tituloLogo {
+        @include TyL;
+
+        img {
+            width: 5rem;
+        }
+
+        h1 {
+            font-family: 'Akshar', sans-serif;
+            font-size: 5rem;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+    }
+
+    .menuHead {
+        grid-column: 1/4;
+        grid-row: 2/3;
+        background-color: rgb(92, 171, 245);
+
+        nav {
+            margin-top: 20px;
+
+            .menuNav {
+                display: flex;
+                justify-content: space-around;
+
+                li {
+                    border: map-get($map: $map1, $key:border-map1);
+                    border-radius: 20px;
+                    padding: 10px;
+                    background-color: rgb(57, 63, 70);
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        cursor: pointer;
+                        @extend %ext1;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.subtituloVI {
+    text-align: center;
+    font-family: 'Akshar', sans-serif;
+    font-size: 2.3rem;
+    padding: 30PX;
+    border: map-get($map: $map1, $key:border-map1);
+    background-color: rgb(57, 63, 70);
+    opacity: 0.9;
+    color: aliceblue;
+}
+
+.subtitulo2VI {
+    text-align: center;
+    margin: 30px
+}
+
+.containervi {
+    background-image: url(../img/guirnalda-banderas-colores-diferentes-paises-europa-mundo-confeti-guirnaldas-festivas-banderin-internacional-guirnaldas-empavesado-banner-fiesta-celebracion-conferencia_302982-248.webp);
+    margin-top: 30px;
+}
+
+.footerVI {
+
+    display: flex;
+    justify-content: space-between;
+    background-image: $colorFondo;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+
+/*/contacto/*/
+/*/logo y nav/*/
+
+.contenedorHeaderContacto {
+    @include header;
+
+    .tituloLogo {
+        @include TyL;
+
+        img {
+            width: 5rem;
+        }
+
+        h1 {
+            font-family: 'Akshar', sans-serif;
+            font-size: 5rem;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+    }
+
+
+    .menuHead {
+        grid-column: 1/4;
+        grid-row: 2/3;
+        background-color: rgb(92, 171, 245);
+
+        nav {
+            margin-top: 20px;
+
+            .menuNav {
+                display: flex;
+                justify-content: space-around;
+
+                li {
+                    border: map-get($map: $map1, $key:border-map1);
+                    border-radius: 20px;
+                    padding: 10px;
+                    background-color: rgb(57, 63, 70);
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        cursor: pointer;
+                        @extend %ext1;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.subtituloC {
+    text-align: center;
+    margin: 30px 10px 30px 10px;
+    font-family: 'Akshar', sans-serif;
+    .subtituloContacto{ font-size: 3rem;
+        border: map-get($map: $map1, $key:border-map1);
+        background-color: rgb(57, 63, 70);
+        opacity: 0.9;
+        color: white;}
         
 }
+
+.containerc{background-color: rgb(178, 177, 223);}
+
+.footerC {
+    display: flex;
+    justify-content: space-between;
+    background-image: $colorFondo;
+    font-size: 1.5rem;
+    width: 100%;
+    margin-top: 150px;
+}
+
+
+/*/ la empresa /*/
+
+/*/logo y nav/*/
+.contenedorLe{
+    @include header;
+
+    .tituloLogo {
+        @include TyL;
+
+        img {
+            width: 5rem;
+        }
+
+        h1 {
+            font-family: 'Akshar', sans-serif;
+            font-size: 5rem;
+            margin-right: 10px;
+            justify-content: center;
+        }
+
+    }
+
+    .menuHead {
+        grid-column: 1/4;
+        grid-row: 2/3;
+        background-color: rgb(92, 171, 245);
+
+        nav {
+            margin-top: 20px;
+
+            .menuNav {
+                display: flex;
+                justify-content: space-around;
+
+                li {
+                    border: map-get($map: $map1, $key:border-map1);
+                    border-radius: 20px;
+                    padding: 10px;
+                    background-color: rgb(57, 63, 70);
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        cursor: pointer;
+                        @extend %ext1;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 752px) {
+    .menuNav {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.mainLe{ background-image: url(../img/nubes_destacada-1024x682.jpg);
+    background-repeat: no-repeat;
+            background-size: cover;
+.tituloLe{text-align: center;
+    font-family: 'Akshar', sans-serif;
+    font-size: 2.3rem;
+    padding: 30PX;
+    border: map-get($map: $map1, $key:border-map1);
+    background-color: rgb(57, 63, 70);
+    opacity: 0.9;
+    color: aliceblue; }
+
+.contenedorMainLe{
+    color: aliceblue;
+    display: flex;
+    margin:50px 30px 2px 50px;
+    padding-bottom: 30px;
+    flex-direction: column;
+    gap: 3rem;
+    border: map-get($map: $map1, $key:border-map1);
+    border-radius: 15px;
+    background-color: rgb(63, 107, 156);
+    opacity: 0.9;
+
+    .tituMainLe{text-align: center;
+        font-family: 'Akshar', sans-serif;
+        margin:15px;
+        font-size: 2rem;}
+
+    .textoMainLe{font-size: 1.5rem;
+                text-align: center;}
+}
+ }
+
+ .footerLe{
+    display: flex;
+    justify-content: space-between;
+    background-image: $colorFondo;
+    font-size: 1.5rem;
+    width: 100%;
+    margin-top: 35px;
+    
+ }
+ @media(max-width:750px){
+     .textoMainLe{font-size: 0.3rem;}
+ }
+             
+        
+    
+    
+
