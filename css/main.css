@@ -1,52 +1,82 @@
-.contenedorHeaderIndex .menuHead nav .menuNav li a, .contenedorHeaderVN .menuHead nav .menuNav li a, .contenedorHeaderVI .menuHead nav .menuNav li a, .contenedorHeaderContacto .menuHead nav .menuNav li a, .contenedorLe .menuHead nav .menuNav li a {
-  font-family: 'Akshar', sans-serif;
-  font-size: 1rem;
-  color: aliceblue;
-  padding-left: 2rem;
-  padding-right: 2rem; }
-
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@300&family=Koulen&family=Libre+Bodoni:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Libre+Bodoni:ital,wght@1,600&display=swap");
 /*/ index /*/
-/*/logo y nav/*/
-.contenedorHeaderIndex {
-  background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
-  display: grid;
-  align-items: center;
-  width: 100%; }
-  .contenedorHeaderIndex .tituloLogo {
+/*/header (se comparte en todos los html)/*/
+.contenedorHeader {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #f7f2f2, #5cabf5); }
+  .contenedorHeader .tituloLogo {
     display: flex;
-    grid-column: 1/3;
     justify-content: center;
-    text-transform: uppercase; }
-    .contenedorHeaderIndex .tituloLogo img {
-      width: 5rem; }
-    .contenedorHeaderIndex .tituloLogo h1 {
-      font-family: 'Akshar', sans-serif;
-      font-size: 5rem;
-      margin-right: 10px;
-      justify-content: center; }
-  .contenedorHeaderIndex .menuHead {
-    grid-column: 1/3;
-    grid-row: 2/3;
-    background-color: #5cabf5; }
-    .contenedorHeaderIndex .menuHead nav {
-      margin-top: 20px; }
-      .contenedorHeaderIndex .menuHead nav .menuNav {
-        display: flex;
-        justify-content: space-around; }
-        .contenedorHeaderIndex .menuHead nav .menuNav li {
-          border: 3px #eee6e6 solid;
-          border-radius: 20px;
-          padding: 10px;
-          background-color: #393f46;
-          list-style: none; }
-          .contenedorHeaderIndex .menuHead nav .menuNav li a {
-            text-decoration: none;
-            cursor: pointer; }
+    align-items: center; }
+    .contenedorHeader .tituloLogo .imgLogo {
+      height: 80px; }
+    .contenedorHeader .tituloLogo .tituloPrincipal {
+      font-family: 'Koulen', cursive;
+      font-size: 5rem; }
+  .contenedorHeader nav {
+    display: flex;
+    justify-content: center; }
+    .contenedorHeader nav .menuNav {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      margin-right: 15px; }
+      .contenedorHeader nav .menuNav a {
+        font-family: 'Koulen', cursive;
+        font-size: 1.1rem;
+        padding: 0 1rem 0 1rem;
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+        display: block;
+        text-transform: uppercase;
+        color: white; }
 
-@media (max-width: 752px) {
-  .menuNav {
-    flex-direction: column;
-    text-align: center; } }
+.contenedorHeader nav .menuNav li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.3rem;
+  background-color: #0712a1;
+  transition: 0.7s; }
+
+.contenedorHeader nav .menuNav li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0.3rem;
+  background-color: #070707;
+  transition: 0.7s; }
+
+.contenedorHeader nav .menuNav li:hover a {
+  color: #070707; }
+
+.contenedorHeader nav .menuNav li:hover a::before {
+  width: 50%; }
+
+.contenedorHeader nav .menuNav li:hover a::after {
+  width: 50%; }
+
+@media (max-width: 1000px) {
+  .contenedorHeader {
+    flex-direction: column; }
+    .contenedorHeader nav .menuNav li a {
+      font-size: 1rem;
+      padding: 0 1rem 0 1rem; } }
+
+@media (max-width: 700px) {
+  .contenedorHeader {
+    flex-direction: column; }
+    .contenedorHeader nav .menuNav li a {
+      font-size: 0.7rem;
+      color: black;
+      padding: 0 0.3rem 0 0.3rem; } }
 
 /*/subtitulo/*/
 .subtitulo {
@@ -55,7 +85,8 @@
   padding: 15px;
   background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2); }
   .subtitulo h2 {
-    font-family: 'Akshar', sans-serif; }
+    font-family: 'Koulen', cursive;
+    font-size: 2rem; }
 
 /*/section/*/
 .contenedorSection {
@@ -71,57 +102,64 @@
     align-items: center;
     display: flex;
     border: 3px #eee6e6 solid;
-    background-color: #979696;
+    background-color: aliceblue;
     border-radius: 13px;
     width: 70%;
-    opacity: 0.6;
-    font-family: 'Akshar', sans-serif; }
+    opacity: 0.6; }
   .contenedorSection .hijo1 {
     text-align: center;
-    font-family: "Bebas Neue", cursie;
     justify-content: center;
     align-items: center;
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.2rem;
+    font-size: 3rem;
     background-image: url(../img/precio.png); }
   .contenedorSection .hijo2 {
     text-align: center;
-    font-family: "Bebas Neue", cursie;
     justify-content: center;
     align-items: center;
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.2rem;
+    font-size: 3rem;
     background-image: url(../img/mvh.jpg); }
   .contenedorSection .hijo3 {
     text-align: center;
-    font-family: "Bebas Neue", cursie;
     justify-content: center;
     align-items: center;
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.2rem;
+    font-size: 3rem;
     background-image: url(../img/azafata-4.jpg); }
   .contenedorSection .hijo4 {
     text-align: center;
-    font-family: "Bebas Neue", cursie;
     justify-content: center;
     align-items: center;
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.2rem;
+    font-size: 3rem;
     background-image: url(../img/seguro.png); }
+  .contenedorSection .cardtext {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; }
 
-@media (max-width: 700px) {
+.span1 {
+  color: green; }
+
+@media (max-width: 1200px) {
   .contenedorSection {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    margin: 5px; } }
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 400px; } }
+
+@media (max-width: 600px) {
+  .contenedorSection .cardtext {
+    font-size: 0.8rem; } }
 
 /*/footer/*/
 .footerI {
@@ -132,42 +170,6 @@
   width: 100%; }
 
 /*/viajes nacionales/*/
-.contenedorHeaderVN {
-  background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
-  display: grid;
-  align-items: center;
-  width: 100%; }
-  .contenedorHeaderVN .tituloLogo {
-    display: flex;
-    grid-column: 1/3;
-    justify-content: center;
-    text-transform: uppercase; }
-    .contenedorHeaderVN .tituloLogo img {
-      width: 5rem; }
-    .contenedorHeaderVN .tituloLogo h1 {
-      font-family: 'Akshar', sans-serif;
-      font-size: 5rem;
-      margin-right: 10px;
-      justify-content: center; }
-  .contenedorHeaderVN .menuHead {
-    grid-column: 1/4;
-    grid-row: 2/3;
-    background-color: #5cabf5; }
-    .contenedorHeaderVN .menuHead nav {
-      margin-top: 20px; }
-      .contenedorHeaderVN .menuHead nav .menuNav {
-        display: flex;
-        justify-content: space-around; }
-        .contenedorHeaderVN .menuHead nav .menuNav li {
-          border: 3px #eee6e6 solid;
-          border-radius: 20px;
-          padding: 10px;
-          background-color: #393f46;
-          list-style: none; }
-          .contenedorHeaderVN .menuHead nav .menuNav li a {
-            text-decoration: none;
-            cursor: pointer; }
-
 .subtituloVN {
   text-align: center;
   font-family: 'Akshar', sans-serif;
@@ -177,11 +179,6 @@
   background-color: #393f46;
   opacity: 0.9;
   color: aliceblue; }
-
-@media (max-width: 900px) {
-  .menuNav {
-    flex-direction: column;
-    text-align: center; } }
 
 /*/main/*/
 .mainVN {
@@ -202,10 +199,8 @@
     background-size: cover;
     background-position: center center; }
     .viajesN .card .textos {
-      display: flex;
-      flex-direction: column;
-      font-size: 1rem;
-      font-family: 'Akshar', sans-serif; }
+      font-family: 'Akshar', sans-serif;
+      font-size: 1.5rem; }
 
 @media (max-width: 752px) {
   .viajesN {
@@ -226,42 +221,6 @@
   width: 100%; }
 
 /*/viajes internacionales/*/
-.contenedorHeaderVI {
-  background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
-  display: grid;
-  align-items: center;
-  width: 100%; }
-  .contenedorHeaderVI .tituloLogo {
-    display: flex;
-    grid-column: 1/3;
-    justify-content: center;
-    text-transform: uppercase; }
-    .contenedorHeaderVI .tituloLogo img {
-      width: 5rem; }
-    .contenedorHeaderVI .tituloLogo h1 {
-      font-family: 'Akshar', sans-serif;
-      font-size: 5rem;
-      margin-right: 10px;
-      justify-content: center; }
-  .contenedorHeaderVI .menuHead {
-    grid-column: 1/4;
-    grid-row: 2/3;
-    background-color: #5cabf5; }
-    .contenedorHeaderVI .menuHead nav {
-      margin-top: 20px; }
-      .contenedorHeaderVI .menuHead nav .menuNav {
-        display: flex;
-        justify-content: space-around; }
-        .contenedorHeaderVI .menuHead nav .menuNav li {
-          border: 3px #eee6e6 solid;
-          border-radius: 20px;
-          padding: 10px;
-          background-color: #393f46;
-          list-style: none; }
-          .contenedorHeaderVI .menuHead nav .menuNav li a {
-            text-decoration: none;
-            cursor: pointer; }
-
 .subtituloVI {
   text-align: center;
   font-family: 'Akshar', sans-serif;
@@ -278,7 +237,10 @@
 
 .containervi {
   background-image: url(../img/guirnalda-banderas-colores-diferentes-paises-europa-mundo-confeti-guirnaldas-festivas-banderin-internacional-guirnaldas-empavesado-banner-fiesta-celebracion-conferencia_302982-248.webp);
-  margin-top: 30px; }
+  margin-top: 30px;
+  overflow-x: hidden; }
+  .containervi .card-text {
+    font-family: 'Akshar', sans-serif; }
 
 .footerVI {
   display: flex;
@@ -289,42 +251,6 @@
 
 /*/contacto/*/
 /*/logo y nav/*/
-.contenedorHeaderContacto {
-  background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
-  display: grid;
-  align-items: center;
-  width: 100%; }
-  .contenedorHeaderContacto .tituloLogo {
-    display: flex;
-    grid-column: 1/3;
-    justify-content: center;
-    text-transform: uppercase; }
-    .contenedorHeaderContacto .tituloLogo img {
-      width: 5rem; }
-    .contenedorHeaderContacto .tituloLogo h1 {
-      font-family: 'Akshar', sans-serif;
-      font-size: 5rem;
-      margin-right: 10px;
-      justify-content: center; }
-  .contenedorHeaderContacto .menuHead {
-    grid-column: 1/4;
-    grid-row: 2/3;
-    background-color: #5cabf5; }
-    .contenedorHeaderContacto .menuHead nav {
-      margin-top: 20px; }
-      .contenedorHeaderContacto .menuHead nav .menuNav {
-        display: flex;
-        justify-content: space-around; }
-        .contenedorHeaderContacto .menuHead nav .menuNav li {
-          border: 3px #eee6e6 solid;
-          border-radius: 20px;
-          padding: 10px;
-          background-color: #393f46;
-          list-style: none; }
-          .contenedorHeaderContacto .menuHead nav .menuNav li a {
-            text-decoration: none;
-            cursor: pointer; }
-
 .subtituloC {
   text-align: center;
   margin: 30px 10px 30px 10px;
@@ -337,7 +263,9 @@
     color: white; }
 
 .containerc {
-  background-color: #b2b1df; }
+  background-color: #b2b1df;
+  overflow-x: hidden;
+  margin-bottom: 100px; }
 
 .footerC {
   display: flex;
@@ -345,83 +273,46 @@
   background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
   font-size: 1.5rem;
   width: 100%;
-  margin-top: 150px; }
+  margin-top: 240px; }
 
 /*/ la empresa /*/
-/*/logo y nav/*/
-.contenedorLe {
-  background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
-  display: grid;
-  align-items: center;
-  width: 100%; }
-  .contenedorLe .tituloLogo {
-    display: flex;
-    grid-column: 1/3;
-    justify-content: center;
-    text-transform: uppercase; }
-    .contenedorLe .tituloLogo img {
-      width: 5rem; }
-    .contenedorLe .tituloLogo h1 {
-      font-family: 'Akshar', sans-serif;
-      font-size: 5rem;
-      margin-right: 10px;
-      justify-content: center; }
-  .contenedorLe .menuHead {
-    grid-column: 1/4;
-    grid-row: 2/3;
-    background-color: #5cabf5; }
-    .contenedorLe .menuHead nav {
-      margin-top: 20px; }
-      .contenedorLe .menuHead nav .menuNav {
-        display: flex;
-        justify-content: space-around; }
-        .contenedorLe .menuHead nav .menuNav li {
-          border: 3px #eee6e6 solid;
-          border-radius: 20px;
-          padding: 10px;
-          background-color: #393f46;
-          list-style: none; }
-          .contenedorLe .menuHead nav .menuNav li a {
-            text-decoration: none;
-            cursor: pointer; }
+.tituloLe {
+  text-align: center;
+  font-family: 'Akshar', sans-serif;
+  font-size: 2.3rem;
+  padding: 30PX;
+  border: 3px #eee6e6 solid;
+  background-color: #393f46;
+  opacity: 0.9;
+  color: aliceblue; }
 
-@media (max-width: 752px) {
-  .menuNav {
-    flex-direction: column;
-    text-align: center; } }
-
-.mainLe {
+.contenedorMainLe {
   background-image: url(../img/nubes_destacada-1024x682.jpg);
   background-repeat: no-repeat;
-  background-size: cover; }
-  .mainLe .tituloLe {
+  background-size: cover;
+  color: aliceblue;
+  display: flex;
+  margin: 50px;
+  padding-bottom: 30px;
+  flex-direction: column;
+  gap: 3rem;
+  border: 3px #eee6e6 solid;
+  border-radius: 15px;
+  background-color: #3f6b9c;
+  opacity: 0.9; }
+  .contenedorMainLe .tituMainLe {
     text-align: center;
-    font-family: 'Akshar', sans-serif;
-    font-size: 2.3rem;
-    padding: 30PX;
+    font-family: font-family "Koulen", cursive;
+    margin: 15px;
+    font-size: 2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; }
+  .contenedorMainLe .textoMainLe {
+    font-size: 1.5rem;
+    text-align: center;
     border: 3px #eee6e6 solid;
-    background-color: #393f46;
-    opacity: 0.9;
-    color: aliceblue; }
-  .mainLe .contenedorMainLe {
-    color: aliceblue;
-    display: flex;
-    margin: 50px 30px 2px 50px;
-    padding-bottom: 30px;
-    flex-direction: column;
-    gap: 3rem;
-    border: 3px #eee6e6 solid;
-    border-radius: 15px;
-    background-color: #3f6b9c;
-    opacity: 0.9; }
-    .mainLe .contenedorMainLe .tituMainLe {
-      text-align: center;
-      font-family: 'Akshar', sans-serif;
-      margin: 15px;
-      font-size: 2rem; }
-    .mainLe .contenedorMainLe .textoMainLe {
-      font-size: 1.5rem;
-      text-align: center; }
+    border-radius: 20px;
+    opacity: 0.5;
+    background-color: #161616; }
 
 .footerLe {
   display: flex;
@@ -429,8 +320,4 @@
   background-image: linear-gradient(to left, #f7f2f2, #5cabf5, #f7f2f2);
   font-size: 1.5rem;
   width: 100%;
-  margin-top: 35px; }
-
-@media (max-width: 750px) {
-  .textoMainLe {
-    font-size: 0.3rem; } }
+  margin-top: 100px; }

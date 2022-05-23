@@ -1,65 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300&family=Koulen&family=Libre+Bodoni:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Libre+Bodoni:ital,wght@1,600&display=swap');
 @import "utilities/variables";
 
 
 /*/ index /*/
 
-/*/logo y nav/*/
-.contenedorHeaderIndex {
-    @include header;
+/*/header (se comparte en todos los html)/*/
+.contenedorHeader {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, rgb(247, 242, 242), rgb(92, 171, 245));
 
-    .tituloLogo {
-        @include TyL;
+    .tituloLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 
-        img {
-            width: 5rem;
-        }
-
-        h1 {
-            font-family: 'Akshar', sans-serif;
-            font-size: 5rem;
-            margin-right: 10px;
-            justify-content: center;
-        }
-
+    .imgLogo{height: 80px;}
+    .tituloPrincipal{
+        font-family: 'Koulen', cursive;
+        font-size: 5rem;}
     }
 
-    .menuHead {
-        grid-column: 1/3;
-        grid-row: 2/3;
-        background-color: rgb(92, 171, 245);
+    nav{
+    display: flex;
+    justify-content: center;
+    
+    
+    
+    .menuNav{display: flex;
+            align-items: center;
+            list-style: none;
+            margin-right: 15px;
+            
+    a {font-family: 'Koulen', cursive;
+        font-size: 1.1rem;
+        padding:0 1rem 0 1rem;
+        text-decoration: none;
+        text-align: center;
+         position: relative;
+         display: block;
+         text-transform: uppercase;
+        color: white; }        
+             }
+              }
+               }
+               //HOVER/AFTER & BEFORE tuve que escribirlo como si fuera css por que no encontre la manera de hacer que funcione con sass
+                .contenedorHeader nav .menuNav li a::before{
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 0;
+                  height: 0.3rem;
+                  background-color: rgb(7, 18, 161);
+                  transition: 0.7s;}
+                  .contenedorHeader nav .menuNav li a::after{
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 0;
+                    height: 0.3rem;
+                    background-color: rgb(7, 7, 7);
+                    transition: 0.7s;}
+                    .contenedorHeader nav .menuNav li:hover a{
+                      color: rgb(7, 7, 7);}
+                    .contenedorHeader nav .menuNav li:hover a::before{width: 50%;}
+                    .contenedorHeader nav .menuNav li:hover a::after{width: 50%;}
 
-        nav {
-            margin-top: 20px;
-
-            .menuNav {
-                display: flex;
-                justify-content: space-around;
-
-                li {
-                    border: map-get($map: $map1, $key:border-map1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    background-color: rgb(57, 63, 70);
-                    list-style: none;
-
-                    a {
-                        text-decoration: none;
-                        cursor: pointer;
-                        @extend %ext1;
-                    }
+    @media (max-width:1000px){
+        .contenedorHeader{
+            flex-direction: column;
+            nav{ 
+                .menuNav{
+                    li{a{font-size: 1rem;
+                        padding:0 1rem 0 1rem;}}
                 }
             }
         }
+    } 
+    
+    @media (max-width:700px){
+        .contenedorHeader{
+            flex-direction: column;
+            nav{
+                .menuNav{
+                    li{a{font-size: 0.7rem;
+                    color: black;
+                    padding:0 0.3rem 0 0.3rem;}}
+                }
+            }
+        }
+    }               
 
-    }
-}
 
-@media (max-width: 752px) {
-    .menuNav {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+                    
+                       
 
 /*/subtitulo/*/
 .subtitulo {
@@ -69,7 +107,8 @@
     background-image: $colorFondo;
 
     h2 {
-        font-family: 'Akshar', sans-serif;
+        font-family: 'Koulen', cursive;
+        font-size: 2rem;
     }
 }
 
@@ -89,16 +128,19 @@
         align-items: center;
         display: flex;
         border: map-get($map: $map1, $key:border-map1);
-        background-color: rgb(151, 150, 150);
+        background-color: aliceblue;
         border-radius: 13px;
         width: 70%;
         opacity: 0.6;
-        font-family: 'Akshar', sans-serif;
+        
+        
+        
     }
 
     .hijo1 {
         @include hijosIndex;
         background-image: url(../img/precio.png);
+        
     }
 
     .hijo2 {
@@ -114,20 +156,26 @@
     .hijo4 {
         @include hijosIndex;
         background-image: url(../img/seguro.png);
+        
     }
 
+    .cardtext{@include cardsText;}
+    
 
 }
+.span1{color: green;}
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
     .contenedorSection {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-        margin: 5px;
-
-    }
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+        min-height: 400px;
+    }    
 }
-
+@media (max-width:600px){
+    .contenedorSection{ 
+    .cardtext{font-size: 0.8rem;}
+} }
 /*/footer/*/
 .footerI {
     display: flex;
@@ -145,55 +193,7 @@
 
 
 /*/viajes nacionales/*/
-.contenedorHeaderVN {
-    @include header;
 
-    .tituloLogo {
-        @include TyL;
-
-        img {
-            width: 5rem;
-        }
-
-        h1 {
-            font-family: 'Akshar', sans-serif;
-            font-size: 5rem;
-            margin-right: 10px;
-            justify-content: center;
-        }
-
-    }
-
-    .menuHead {
-        grid-column: 1/4;
-        grid-row: 2/3;
-        background-color: rgb(92, 171, 245);
-
-        nav {
-            margin-top: 20px;
-
-            .menuNav {
-                display: flex;
-                justify-content: space-around;
-
-                li {
-                    border: map-get($map: $map1, $key:border-map1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    background-color: rgb(57, 63, 70);
-                    list-style: none;
-
-                    a {
-                        text-decoration: none;
-                        cursor: pointer;
-                        @extend %ext1;
-                    }
-                }
-            }
-        }
-
-    }
-}
 
 .subtituloVN {
     text-align: center;
@@ -207,12 +207,7 @@
 
 }
 
-@media (max-width: 900px) {
-    .menuNav {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+
 
 /*/main/*/
 .mainVN {
@@ -221,42 +216,47 @@
 
 
 
-    .viajesN {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: max-content max-content max-content;
-        gap: 1rem;
+.viajesN {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: max-content max-content max-content;
+    gap: 1rem;
 
-        .card {
-            box-shadow: 0 2px 2px black;
-            border-radius: 10px;
-            font-weight: bold;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center center;
+    .card {
+        box-shadow: 0 2px 2px black;
+        border-radius: 10px;
+        font-weight: bold;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center center;
 
 
-            .textos {
-                @include cardsText
-            }
-
-            
-
+        .textos {
+            font-family: 'Akshar', sans-serif;
+            font-size: 1.5rem;
         }
+
+
+
     }
-@media (max-width: 752px){
-    .viajesN{
+}
+
+@media (max-width: 752px) {
+    .viajesN {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: max-content max-content;
         gap: 0.5rem;
-    
-        
+
+
     }
 }
-@media(max-width:752px){
-    .textos{ font-size: 0.5rem;}
+
+@media(max-width:752px) {
+    .textos {
+        font-size: 0.5rem;
+    }
 }
 
 /*/footer/*/
@@ -272,55 +272,8 @@
 
 
 /*/viajes internacionales/*/
-.contenedorHeaderVI {
-    @include header;
 
-    .tituloLogo {
-        @include TyL;
 
-        img {
-            width: 5rem;
-        }
-
-        h1 {
-            font-family: 'Akshar', sans-serif;
-            font-size: 5rem;
-            margin-right: 10px;
-            justify-content: center;
-        }
-
-    }
-
-    .menuHead {
-        grid-column: 1/4;
-        grid-row: 2/3;
-        background-color: rgb(92, 171, 245);
-
-        nav {
-            margin-top: 20px;
-
-            .menuNav {
-                display: flex;
-                justify-content: space-around;
-
-                li {
-                    border: map-get($map: $map1, $key:border-map1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    background-color: rgb(57, 63, 70);
-                    list-style: none;
-
-                    a {
-                        text-decoration: none;
-                        cursor: pointer;
-                        @extend %ext1;
-                    }
-                }
-            }
-        }
-
-    }
-}
 
 .subtituloVI {
     text-align: center;
@@ -341,6 +294,8 @@
 .containervi {
     background-image: url(../img/guirnalda-banderas-colores-diferentes-paises-europa-mundo-confeti-guirnaldas-festivas-banderin-internacional-guirnaldas-empavesado-banner-fiesta-celebracion-conferencia_302982-248.webp);
     margin-top: 30px;
+    overflow-x: hidden;
+.card-text{font-family: 'Akshar', sans-serif;}
 }
 
 .footerVI {
@@ -356,70 +311,27 @@
 /*/contacto/*/
 /*/logo y nav/*/
 
-.contenedorHeaderContacto {
-    @include header;
-
-    .tituloLogo {
-        @include TyL;
-
-        img {
-            width: 5rem;
-        }
-
-        h1 {
-            font-family: 'Akshar', sans-serif;
-            font-size: 5rem;
-            margin-right: 10px;
-            justify-content: center;
-        }
-
-    }
-
-
-    .menuHead {
-        grid-column: 1/4;
-        grid-row: 2/3;
-        background-color: rgb(92, 171, 245);
-
-        nav {
-            margin-top: 20px;
-
-            .menuNav {
-                display: flex;
-                justify-content: space-around;
-
-                li {
-                    border: map-get($map: $map1, $key:border-map1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    background-color: rgb(57, 63, 70);
-                    list-style: none;
-
-                    a {
-                        text-decoration: none;
-                        cursor: pointer;
-                        @extend %ext1;
-                    }
-                }
-            }
-        }
-
-    }
-}
 
 .subtituloC {
     text-align: center;
     margin: 30px 10px 30px 10px;
     font-family: 'Akshar', sans-serif;
-    .subtituloContacto{ font-size: 3rem;
+
+    .subtituloContacto {
+        font-size: 3rem;
         border: map-get($map: $map1, $key:border-map1);
         background-color: rgb(57, 63, 70);
         opacity: 0.9;
-        color: white;}
-        
+        color: white;
+    }
+
 }
 
-.containerc{background-color: rgb(178, 177, 223);}
+.containerc {
+    background-color: rgb(178, 177, 223);
+    overflow-x: hidden;
+    margin-bottom: 100px;
+}
 
 .footerC {
     display: flex;
@@ -427,85 +339,33 @@
     background-image: $colorFondo;
     font-size: 1.5rem;
     width: 100%;
-    margin-top: 150px;
+    margin-top: 240px;
 }
 
 
 /*/ la empresa /*/
 
-/*/logo y nav/*/
-.contenedorLe{
-    @include header;
 
-    .tituloLogo {
-        @include TyL;
 
-        img {
-            width: 5rem;
-        }
 
-        h1 {
-            font-family: 'Akshar', sans-serif;
-            font-size: 5rem;
-            margin-right: 10px;
-            justify-content: center;
-        }
-
-    }
-
-    .menuHead {
-        grid-column: 1/4;
-        grid-row: 2/3;
-        background-color: rgb(92, 171, 245);
-
-        nav {
-            margin-top: 20px;
-
-            .menuNav {
-                display: flex;
-                justify-content: space-around;
-
-                li {
-                    border: map-get($map: $map1, $key:border-map1);
-                    border-radius: 20px;
-                    padding: 10px;
-                    background-color: rgb(57, 63, 70);
-                    list-style: none;
-
-                    a {
-                        text-decoration: none;
-                        cursor: pointer;
-                        @extend %ext1;
-                    }
-                }
-            }
-        }
-
-    }
-}
-
-@media (max-width: 752px) {
-    .menuNav {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-.mainLe{ background-image: url(../img/nubes_destacada-1024x682.jpg);
-    background-repeat: no-repeat;
-            background-size: cover;
-.tituloLe{text-align: center;
+.tituloLe {
+    text-align: center;
     font-family: 'Akshar', sans-serif;
     font-size: 2.3rem;
     padding: 30PX;
     border: map-get($map: $map1, $key:border-map1);
     background-color: rgb(57, 63, 70);
     opacity: 0.9;
-    color: aliceblue; }
+    color: aliceblue;
+}
 
-.contenedorMainLe{
+.contenedorMainLe {
+    background-image: url(../img/nubes_destacada-1024x682.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: aliceblue;
     display: flex;
-    margin:50px 30px 2px 50px;
+    margin: 50px;
     padding-bottom: 30px;
     flex-direction: column;
     gap: 3rem;
@@ -514,30 +374,33 @@
     background-color: rgb(63, 107, 156);
     opacity: 0.9;
 
-    .tituMainLe{text-align: center;
-        font-family: 'Akshar', sans-serif;
-        margin:15px;
-        font-size: 2rem;}
+    .tituMainLe {
+        text-align: center;
+        font-family:$font-titulos;
+        margin: 15px;
+        font-size: 2rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
 
-    .textoMainLe{font-size: 1.5rem;
-                text-align: center;}
+    .textoMainLe {
+        font-size: 1.5rem;
+        text-align: center;
+        border: map-get($map: $map1, $key:border-map1);
+        border-radius: 20px;
+        opacity: 0.5;
+        background-color: rgb(22, 22, 22);
+    }
 }
- }
 
- .footerLe{
+
+.footerLe {
     display: flex;
     justify-content: space-between;
     background-image: $colorFondo;
     font-size: 1.5rem;
     width: 100%;
-    margin-top: 35px;
-    
- }
- @media(max-width:750px){
-     .textoMainLe{font-size: 0.3rem;}
- }
-             
-        
-    
-    
+    margin-top: 100px;
 
+}
+
+ 
